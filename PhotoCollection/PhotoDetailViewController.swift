@@ -8,14 +8,32 @@
 
 import UIKit
 
-class PhotoDetailViewController: UIViewController {
+class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var myTextField: UITextField!
     @IBOutlet var imageView: UIImageView!
     
     @IBAction func savePhoto(_ sender: UIBarButtonItem) {
+        guard let image = imageView.image,
+            let imageData = image.pngData(),
+            let text = myTextField.text else {return}
+        
+        // not sure
+        if let myPhoto = photo {
+            photoController?.update(title: text, data: imageData, photo: myPhoto)
+            navigationController?.popToRootViewController(animated: true)
+        } else {
+            photoController?.create(photo: Photo(imageData: image.pngData()!, title: text))
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
+    
     @IBAction func addPhoto(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     var photoController: PhotoController?
@@ -27,6 +45,8 @@ class PhotoDetailViewController: UIViewController {
         updateViews()
         // Do any additional setup after loading the view.
     }
+    
+    
     
     func setTheme(){
         guard let myTheme = themeHelper?.themePreference else { return }
