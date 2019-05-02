@@ -30,16 +30,23 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     func setTheme() {
         guard let myTheme = themeHelper.themePreference else {return}
+        if myTheme == "Dark" {
+            view.backgroundColor = .darkGray
+            
+        } else if myTheme == "Blue" {
+            view.backgroundColor = .blue
+        }
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
     // MARK: UICollectionViewDataSource
 
