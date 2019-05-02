@@ -30,6 +30,10 @@ class PhotoDetailViewController: UIViewController {
     func setTheme(){
         
     }
+    
+    private func updateViews(){
+        
+    }
     /*
     // MARK: - Navigation
 
