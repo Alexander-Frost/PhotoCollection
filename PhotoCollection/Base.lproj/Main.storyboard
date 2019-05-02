@@ -48,7 +48,7 @@
                                 <connections>
                                     <outlet property="imageView" destination="hzQ-vv-Jm4" id="ODt-Jx-EtA"/>
                                     <outlet property="myLbl" destination="G4r-KB-FH2" id="fN1-Tn-maH"/>
-                                    <segue destination="FzA-OJ-MIB" kind="show" id="ZdK-yt-vsc"/>
+                                    <segue destination="FzA-OJ-MIB" kind="show" identifier="CellSegue" id="ZdK-yt-vsc"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -65,7 +65,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Yww-m4-LF1">
                             <connections>
-                                <segue destination="FzA-OJ-MIB" kind="show" id="loc-Zl-wPD"/>
+                                <segue destination="FzA-OJ-MIB" kind="show" identifier="AddButtonSegue" id="loc-Zl-wPD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
