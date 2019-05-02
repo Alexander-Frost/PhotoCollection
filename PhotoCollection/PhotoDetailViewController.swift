@@ -27,7 +27,9 @@ class PhotoDetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    func setTheme(){
+        
+    }
     /*
     // MARK: - Navigation
 
