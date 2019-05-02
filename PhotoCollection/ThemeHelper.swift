@@ -12,6 +12,18 @@ import UIKit
 class ThemeHelper{
     
     let themePreferenceKey: String = "thisIsMyKey"
+    let userDefaults = UserDefaults.standard
     
+    var themePreference: String? {
+        return userDefaults.string(forKey: themePreferenceKey)
+    }
+    
+    func setThemePreferenceToDark(){
+        userDefaults.set("Dark", forKey: themePreferenceKey)
+    }
+    
+    func setThemePreferenceToYourColorHere(){
+        userDefaults.set("Light", forKey: themePreferenceKey)
+    }
     
 }
