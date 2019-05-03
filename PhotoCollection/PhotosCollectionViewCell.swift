@@ -19,7 +19,10 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     }
     
     private func updateViews(){
-        
+        guard let myPhoto = photo else { return }
+       myLbl.text = photo?.title
+        imageView.image = UIImage(data: myPhoto.imageData)
+            //myPhoto.imageDate
     }
     
     

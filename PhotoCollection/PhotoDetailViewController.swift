@@ -18,7 +18,7 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
             let imageData = image.pngData(),
             let text = myTextField.text else {return}
         
-        // not sure
+        
         if let myPhoto = photo {
             photoController?.update(title: text, data: imageData, photo: myPhoto)
             navigationController?.popToRootViewController(animated: true)
@@ -52,7 +52,7 @@ class PhotoDetailViewController: UIViewController, UIImagePickerControllerDelega
         guard let myTheme = themeHelper?.themePreference else { return }
         
         if myTheme == "Dark" {
-            view.backgroundColor = .gray
+            view.backgroundColor = .darkGray
         } else if myTheme == "Blue" {
             view.backgroundColor = .blue
         }
