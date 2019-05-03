@@ -38,12 +38,22 @@ class PhotosCollectionViewController: UICollectionViewController {
         }
     }
     
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "CellSegue" {
-            segue.destination = PhotoDetailViewController
+            guard let cellVC = segue.destination as? PhotoDetailViewController else { return }
+            cellVC.photoController = photoController
+            cellVC.themeHelper = themeHelper
+            //segue.destination = PhotoDetailViewController()
+        } else if segue.identifier == "AddButtonSegue" {
+            guard let myVC = segue.destination as? PhotoDetailViewController else { return }
+            myVC.themeHelper = themeHelper
+            myVC.photoController = photoController
         }
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
@@ -102,3 +112,4 @@ class PhotosCollectionViewController: UICollectionViewController {
     */
 
 }
+
